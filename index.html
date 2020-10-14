@@ -1,0 +1,22 @@
+<div id='app'>
+	<h1>{{titulo}}</h1>
+	<h3>{{subtitulo}}</h3>
+	
+	<ul>
+		<li v-for="planeta of planetas">
+			<input type='number' v-model.number='planeta.diametro' >
+			{{planeta.nombre}}
+			<span v-if="planeta.diametro <= 1">Diametro Corto</span>
+			<span v-else>Ok</span>
+			<button @click="planeta.diametro ++">Mas</button>
+		</li>
+	</ul>
+	<h3>TOTAL: {{sumarPlanetas}}<h3>
+	<input type="text" name="txtNombre" v-model="nuevoPlaneta" @keyup.enter="agregarPlaneta()" placeholder="Ingrese un valor">
+	<input type="number" name="txtDiametro" v-model="insertarDiametro" @keyup.enter="agregarPlaneta()" placeholder="Ingrese el diametro">
+	<button @click="agregarPlaneta()">Agregar Planeta</button>
+	
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src='script.js'> </script>
